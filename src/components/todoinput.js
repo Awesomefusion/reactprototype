@@ -9,3 +9,4 @@ class ToDoInput extends React.Component{
         )
     }
 }
+export default ToDoInput

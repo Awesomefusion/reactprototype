@@ -9,3 +9,4 @@ class ToDoItem extends React.Component{
         )
     }
 }
+export default ToDoItem
