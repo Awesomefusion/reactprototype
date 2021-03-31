@@ -4,7 +4,11 @@ class ToDoList extends React.Component{
     {
         return (
             <div>
-                
+                <ul>
+                    {this.props.todos.map(todo => (
+                    <li>{todo.title}</li>
+                    ))}
+                </ul>
             </div>
         )
     }
