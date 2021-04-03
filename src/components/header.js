@@ -1,12 +1,11 @@
 import React from "react"
-class Header extends React.Component{
-    render()
-    {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
+
+const Header = () => {
+  return (
+    <header>
+      <h1>todos</h1>
+    </header>
+  )
 }
+
 export default Header

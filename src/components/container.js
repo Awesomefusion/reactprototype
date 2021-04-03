@@ -1,5 +1,6 @@
 import React from "react"
 import ToDoList from "./ToDoList"
+import Header from "./Header"
 
 class Container extends React.Component{
 
@@ -27,6 +28,7 @@ class Container extends React.Component{
     {
         return (
             <div>
+                <Header />
                 <ToDoList todos={this.state.todos} />
             </div>
         )
