@@ -3,7 +3,6 @@ import ToDoList from "./ToDoList"
 import Header from "./Header"
 
 class Container extends React.Component{
-
     state = {
         todos: [
           {
@@ -23,13 +22,22 @@ class Container extends React.Component{
           }
         ]
        };
-
+      handleChange = id => {
+        this.setState(prevState => ({
+          todos: prevState.todos.map(todo => {
+            if (todo.id === id) {
+              todo.completed = !todo.completed
+            }
+            return todo
+          }),
+        }))
+      };
     render()
     {
         return (
             <div>
                 <Header />
-                <ToDoList todos={this.state.todos} />
+                <ToDoList todos={this.state.todos} handleChangeProps={this.handleChange} />
             </div>
         )
     }
