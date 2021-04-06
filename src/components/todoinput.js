@@ -13,6 +13,10 @@ class ToDoInput extends React.Component{
 
     handleSubmit = e =>{
         e.preventDefault();
+        this.props.addToDoProps(this.state.title);
+        this.setState({
+            title: ""
+        });
     };
 
     render()
@@ -20,13 +24,13 @@ class ToDoInput extends React.Component{
         return (
             <div>
                 <form
-                onSubmit={this.handleSubmit}
+                    onSubmit={this.handleSubmit}
                 >
                     <input type="text"
-                    placeholder="Add Todo..."
-                    value={this.state.title}
-                    name="title"
-                    onChange={this.onChange}
+                        placeholder="Add Todo..."
+                        value={this.state.title}
+                        name="title"
+                        onChange={this.onChange}
                     />
 
                     <button>Submit</button>

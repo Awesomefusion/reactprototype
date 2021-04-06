@@ -45,18 +45,31 @@ class Container extends React.Component{
           ]
         });
       };
+
+      addToDoItem = title =>{
+        const newTodo = {
+          id: 4,
+          title: title,
+          completed: false
+        };
+        this.setState({
+          todos: [...this.state.todos, newTodo]
+        });
+
+      };
+
     render()
     {
         return (
             <div>
                 <Header />
                 <ToDoInput 
-                
+                  addToDoProps={this.addToDoItem}
                 />
                 <ToDoList
-                todos={this.state.todos}
-                handleChangeProps={this.handleChange}
-                deleteTodoProps={this.delTodo}
+                  todos={this.state.todos}
+                  handleChangeProps={this.handleChange}
+                  deleteTodoProps={this.delTodo}
                 />
             </div>
         )
