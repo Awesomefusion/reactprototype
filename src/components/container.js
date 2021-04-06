@@ -1,6 +1,7 @@
 import React from "react"
 import ToDoList from "./ToDoList"
 import Header from "./Header"
+import ToDoInput from "./ToDoInput"
 
 class Container extends React.Component{
     state = {
@@ -8,7 +9,7 @@ class Container extends React.Component{
           {
             id: 1,
             title: "Setup development environment",
-            completed: true
+            completed: false
           },
           {
             id: 2,
@@ -26,18 +27,37 @@ class Container extends React.Component{
         this.setState(prevState => ({
           todos: prevState.todos.map(todo => {
             if (todo.id === id) {
-              todo.completed = !todo.completed
+              return {
+                ...todo,
+                completed: !todo.completed,
+              }
             }
             return todo
           }),
         }))
+      };
+      delTodo = id => {
+        this.setState({
+          todos: [
+            ...this.state.todos.filter(todo => {
+              return todo.id !== id;
+            })
+          ]
+        });
       };
     render()
     {
         return (
             <div>
                 <Header />
-                <ToDoList todos={this.state.todos} handleChangeProps={this.handleChange} />
+                <ToDoInput 
+                
+                />
+                <ToDoList
+                todos={this.state.todos}
+                handleChangeProps={this.handleChange}
+                deleteTodoProps={this.delTodo}
+                />
             </div>
         )
     }
