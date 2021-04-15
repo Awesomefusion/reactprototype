@@ -63,8 +63,9 @@ class Container extends React.Component{
     render()
     {
         return (
-            <div>
-                <Header />
+            <div className="container">
+              <div classname="inner">
+              <Header />
                 <ToDoInput 
                   addToDoProps={this.addToDoItem}
                 />
@@ -73,6 +74,7 @@ class Container extends React.Component{
                   handleChangeProps={this.handleChange}
                   deleteTodoProps={this.delTodo}
                 />
+              </div>
             </div>
         )
     }
